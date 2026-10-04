@@ -1,0 +1,16 @@
+{
+  "name": "quietspace",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/ws", "/api/*", "/f/*"]
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "HUB", "class_name": "HubDO" }]
+  },
+  // ที่เก็บไฟล์แนบ (อัปโหลดไฟล์ + โมเดลอวตาร์ 3D) ต้องสร้างบัคเก็ต R2 ก่อน แล้วค่อยลบเครื่องหมาย // หน้าบรรทัดนี้ (ดู README หัวข้อ "เปิดระบบอัปโหลดไฟล์")
+  // "r2_buckets": [{ "binding": "FILES", "bucket_name": "quietspace-files" }],
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["HubDO"] }]
+}
